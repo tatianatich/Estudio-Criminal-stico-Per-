@@ -1,6 +1,6 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import type { ReactNode } from 'react'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -14,10 +14,6 @@ export const metadata: Metadata = {
     'abogados criminalistas',
     'servicios jurídicos',
     'Perú',
-    'investigación criminal',
-    'perito judicial',
-    'análisis forense',
-    'asesoría legal especializada',
   ],
   authors: [{ name: 'Estudio Criminalístico Perú' }],
   creator: 'Estudio Criminalístico Perú',
@@ -25,35 +21,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Estudio Criminalístico Perú | Peritajes Profesionales y Defensa Legal',
     description:
-      'Expertos en peritajes forenses y defensa legal en todo el Perú. Resultados con precisión, ética y comprobados.',
-    url: 'https://www.estudiocriminalisticoperu.com',
-    siteName: 'Estudio Criminalístico Perú',
-    images: [
-      {
-        url: '/images/og-image.jpg', // cambia por tu imagen real en /public/images
-        width: 1200,
-        height: 630,
-        alt: 'Estudio Criminalístico Perú - Peritajes y Defensa Legal',
-      },
-    ],
-    locale: 'es_PE',
-    type: 'website',
-  },
-  icons: {
-    icon: '/icon.png', // tu logo en la carpeta /public
+      'Expertos en peritajes forenses y defensa legal. Atención en todo el país con ética, precisión y resultados comprobados.',
+    images: ['/images/ecp-logo.jpg'],
   },
     generator: 'v0.dev'
-}
+};
 
+// 👇 Aquí empieza el RootLayout y añadimos el favicon
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
     <html lang="es">
       <head>
-        <link rel="icon" href="/icon.png" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <style>{`
           html {
             font-family: ${GeistSans.style.fontFamily};
@@ -67,28 +50,19 @@ export default function RootLayout({
   )
 }
 
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="es">
-      <head>
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.png" type="image/png" />
-
-        {/* Fuentes */}
-        <style>{`
-          html {
-            font-family: ${GeistSans.style.fontFamily};
-            --font-sans: ${GeistSans.variable};
-            --font-mono: ${GeistMono.variable};
-          }
-        `}</style>
-      </head>
-      <body>{children}</body>
-    </html>
-  )
+export default function RootLayout({ children }: { children: ReactNode }) {
+return (
+  <html lang="es">
+    <head>
+      <style>{`
+        html {
+          font-family: ${GeistSans.style.fontFamily};
+          --font-sans: ${GeistSans.variable};
+          --font-mono: ${GeistMono.variable};
+        }
+      `}</style>
+    </head>
+    <body>{children}</body>
+  </html>
+)
 }
