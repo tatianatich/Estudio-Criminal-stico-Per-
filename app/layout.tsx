@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 import type { ReactNode } from 'react'
 import './globals.css'
 
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     images: ['/images/ecp-logo.jpg'],
   },
     generator: 'v0.dev'
-};
+}
 
 export default function RootLayout({
   children,
