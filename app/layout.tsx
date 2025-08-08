@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 };
 
-// 👇 Aquí empieza el RootLayout y añadimos el favicon
 export default function RootLayout({
   children,
 }: {
@@ -48,21 +47,4 @@ export default function RootLayout({
       <body>{children}</body>
     </html>
   )
-}
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-return (
-  <html lang="es">
-    <head>
-      <style>{`
-        html {
-          font-family: ${GeistSans.style.fontFamily};
-          --font-sans: ${GeistSans.variable};
-          --font-mono: ${GeistMono.variable};
-        }
-      `}</style>
-    </head>
-    <body>{children}</body>
-  </html>
-)
 }
