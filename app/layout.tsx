@@ -14,37 +14,59 @@ export const metadata: Metadata = {
     'abogados criminalistas',
     'servicios jurídicos',
     'Perú',
+    'investigación criminal',
+    'perito judicial',
+    'análisis forense',
+    'asesoría legal especializada',
   ],
   authors: [{ name: 'Estudio Criminalístico Perú' }],
   creator: 'Estudio Criminalístico Perú',
   publisher: 'Estudio Criminalístico Perú',
-  icons: { icon: '/icon.png' }, // Added icons property
   openGraph: {
     title: 'Estudio Criminalístico Perú | Peritajes Profesionales y Defensa Legal',
     description:
-      'Expertos en peritajes forenses y defensa legal. Atención en todo el país con ética, precisión y resultados comprobados.',
+      'Expertos en peritajes forenses y defensa legal en todo el Perú. Resultados con precisión, ética y comprobados.',
     url: 'https://www.estudiocriminalisticoperu.com',
     siteName: 'Estudio Criminalístico Perú',
     images: [
       {
-        url: '/images/ecp-logo.jpg',
+        url: '/images/og-image.jpg', // cambia por tu imagen real en /public/images
         width: 1200,
         height: 630,
-        alt: 'Estudio Criminalístico Perú - Peritajes Profesionales y Defensa Legal',
+        alt: 'Estudio Criminalístico Perú - Peritajes y Defensa Legal',
       },
     ],
     locale: 'es_PE',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Estudio Criminalístico Perú | Peritajes Profesionales y Defensa Legal',
-    description:
-      'Expertos en peritajes forenses y defensa legal. Atención en todo el país con ética, precisión y resultados comprobados.',
-    images: ['/images/ecp-logo.jpg'],
+  icons: {
+    icon: '/icon.png', // tu logo en la carpeta /public
   },
     generator: 'v0.dev'
 }
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="es">
+      <head>
+        <link rel="icon" href="/icon.png" sizes="any" />
+        <style>{`
+          html {
+            font-family: ${GeistSans.style.fontFamily};
+            --font-sans: ${GeistSans.variable};
+            --font-mono: ${GeistMono.variable};
+          }
+        `}</style>
+      </head>
+      <body>{children}</body>
+    </html>
+  )
+}
+
 
 export default function RootLayout({
   children,
@@ -54,7 +76,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-      <link rel="icon" href="/favicon.png" type="image/png" />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
+
+        {/* Fuentes */}
         <style>{`
           html {
             font-family: ${GeistSans.style.fontFamily};
