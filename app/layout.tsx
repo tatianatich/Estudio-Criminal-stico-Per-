@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Estudio Criminalístico Perú' }],
   creator: 'Estudio Criminalístico Perú',
   publisher: 'Estudio Criminalístico Perú',
+  icons: { icon: '/icon.png' }, // Added icons property
   openGraph: {
     title: 'Estudio Criminalístico Perú | Peritajes Profesionales y Defensa Legal',
     description:
@@ -53,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+      <link rel="icon" href="/favicon.png" type="image/png" />
         <style>{`
           html {
             font-family: ${GeistSans.style.fontFamily};
